@@ -241,7 +241,7 @@ uint32_t sleep_miliseconds_win_linux(int sleep_miliseconds)
 #ifdef _WIN32
     Sleep(sleep_miliseconds); /* Sleep for sleep_miliseconds - WINDOWS */
 #else
-    usleep(sleep_miliseconds * 100);  /* - Linux */
+    usleep(sleep_miliseconds * 1000);  /* - Linux */
 #endif
 
     return 1;
