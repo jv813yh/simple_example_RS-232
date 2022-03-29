@@ -1,17 +1,16 @@
 
 /**************************************************
-file: demo_tx.c             v.1.2
-purpose: simple demo that transmits file to
-the serial port 
-
-compile with the command: gcc demo_tx.c rs232.c -Wall -Wextra -o2 -o test_tx
-or with the make
-
-Windows / Linux
-
-Author: Jozef Vendel, Create date: 24.12.2021
-
-KEMT FEI TUKE, Diploma thesis
+* file: demo_tx.c             v.1.2
+* purpose: simple demo that transmits file to
+* the serial port 
+*
+* Compile with the makefile
+* 
+* Windows / Linux
+*
+* Author: Jozef Vendel, Create date: 24.12.2021
+* 
+* KEMT FEI TUKE, Diploma thesis
 **************************************************/
 
 /* Basic libraries for working in C. */
