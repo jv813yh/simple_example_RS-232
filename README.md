@@ -1,10 +1,33 @@
 # simple_example_RS-232
 This is my first application using the RS-232 communication channel so I apologize for the stupid mistakes.
 
-Demonstration of an example using the RS-232 communication channel in C language without data protection. The test_tx.exe application loads the input file specified as the second argument when calling test_tx, find out its size, which is the first message sends to the other party. It will receive the management of the size of the expected data and access The other party sends a success report or failure to send data to the first party. Accordingly, the process is repeated or quit. COM ports (numbers need to be modified in source codes). Data is sent in blocks of constant size INTERNAlL_BUFFER !!! The recipient writes data to the CLI (or file received_data.txt., I will add this option to the next version)
+Example of the use of the RS-232 communication channel in
+language C at 115200 Bd without any protection of transmitted data.
 
-/* I will add this option to the next version / The compile code comapre_files.c is added and can be compiled using the command: gcc compare_files.c -o cmp_files With this program it is possible to check sending and receiving file is identical. / */
+Source code demo_tx.c creates an input file as needed
+user or loads the input file specified by the user and sends the size of the transferred file and the size of the sent blocks. The other side (PC2)
+receive the size of the transferred file and the size of the transferred blocks.
+This is followed by the actual data transfer in blocks. The other party sends a success message resp
+not sending data to the first party. The process is repeated accordingly
+or quit. COM ports (numbers need to be modified
+in source codes).
 
-The program can be compiled using the Makefile file. Text files serve as a basis for application demonstration. They are added .bat files for easy program execution.
 
-Windows/Linux
+The program can be compiled using a Makefile. They are added
+.bat files for easy running of programs in Windows. For
+Linux is required to call programs from the CLI.The programs are portable between Windows and Linux.
+
+I downloaded the RS-232 library:
+https://www.teuniz.net/RS-232/
+
+I use the com0com emulator, which can only run on Windows
+to create virtual COM ports:
+http://com0com.sourceforge.net/
+
+On Linux I use:
+
+Because I didn't want to use any cryptography in the programs
+protection of transmitted data or something similar, the file Compare_files.c is added,
+which compares two files and evaluates whether they are identical or not:
+
+gcc compare_files.c -o cmp
