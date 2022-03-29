@@ -1,4 +1,4 @@
-# simple_example_RS-232
+# Simple_example_RS-232
 This is my second application using the RS-232 communication channel so I apologize for the stupid mistakes.
 
 Example of the use of the RS-232 communication channel in
