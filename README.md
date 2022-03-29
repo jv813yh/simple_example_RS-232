@@ -4,6 +4,8 @@ This is my second application using the RS-232 communication channel so I apolog
 Example of the use of the RS-232 communication channel in
 language C at 115200 Bd without any protection of transmitted data.
 
+Another example for unsecure communication with RS-232 with 9600Bd: https://github.com/jv813yh/simple_example_RS-232_9600
+
 Source code demo_tx.c creates an input file as needed
 user or loads the input file specified by the user and sends the size of the transferred file and the size of the sent blocks. The other side (PC2)
 receive the size of the transferred file and the size of the transferred blocks.
