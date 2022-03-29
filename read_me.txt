@@ -8,31 +8,47 @@
 
 Zoznam suborov
   
- example_rs232
-      |__10.txt
-      |__5.txt
-      |__TEST.txt
-      |__TEST1.txt
+ simple_example_RS-232
+      |__INC
+      |__SRC_LIB
+      |__compare_files
+      |__demo_rx.bat
       |__demo_rx.c
       |__demo_tx.c
+      |__demo_tx.bat
       |__Makefile
-      |__rs232.c
-      |__rs232.h
       |__readme.txt
-      |__test_rx.bat
-      |__test_tx.bat
 
 
 Demonstrovanie prikladu vyuzivajuceho komunikacny kanal RS-232 v
-jazyku C bez ochrany prenasanych dat. 
-Aplikacia test_tx.exe nacita vstupny subor zadany ako druhy argument
-pri volani test_tx, zisti jeho velkost, ktoru ako prvu spravu
-odosle druhej strane. Ta prijme spravu velkosti ocakavanych dat a pristupi
+jazyku C pri 115200 Bd bez ziadnej ochrany prenasanych dat. 
+
+Aplikacia demo_tx.exe vytvori vstupny subor podla poziadaviek
+uzivatela alebo nacita vstupny subor zadany uzivatelom. Druhej strane
+posle velkost prenasaneho suboru a velkost prenasanych blokoch, kedze data
+sa prenasaju v blokoch. Druha strana predstavuje PC2(demo_tx.c) prijme spravu velkosti ocakavanych dat a velkosti prenasanych blokch a pristupi
 sa k odosielanu samotnych dat.Druha strana odosle spravu o uspenosti alebo
 neuspenosti odosielania dat prvej strane. Podla toho sa proces opakuje
 alebo ukonci. Vyuzivaju sa COM porty (cisla, je potrebne upravit
 v zdrojokoych kodoch).
 
-Program je kompilovatelny pomocou Makefile suboru.
-Textove subory sluzia ako podklad pre demonstraciu aplikacie. Su dodane
-.bat subory pre jednoduche spustenie programov. 
+Program je kompilovatelny pomocou Makefile suboru. Su dodane
+.bat subory pre jednoduche spustenie programov na Windows. Pre
+Linux je potrebne zavolat programy z CLI.
+
+Programy su prenositelne medzi Windows a Linux.
+
+Kniznicu RS-232 som stiahol: 
+https://www.teuniz.net/RS-232/
+
+Vyuzivam emulator com0com, ktory je spustitelny len na Windows
+pre vytvorenie virtualnych COM portov:
+http://com0com.sourceforge.net/
+
+Na Linuxe vyuzivam:
+
+Kedze v programoch som nechcel vyuzivat ziadnu kryptograficku
+ochranu prenasanych dat ani nic podobne, je pridany subor compare_files.c,
+ktory porovnava dva subory a vyhodnoti, ci su identicke, alebo nie.
+gcc compare_files.c -o cmp
+
