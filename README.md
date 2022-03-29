@@ -1,5 +1,5 @@
 # simple_example_RS-232
-This is my first application using the RS-232 communication channel so I apologize for the stupid mistakes.
+This is my second application using the RS-232 communication channel so I apologize for the stupid mistakes.
 
 Example of the use of the RS-232 communication channel in
 language C at 115200 Bd without any protection of transmitted data.
