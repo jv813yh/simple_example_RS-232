@@ -15,9 +15,8 @@ or quit. COM ports (numbers need to be modified
 in source codes).
 
 
-The program can be compiled using a Makefile. They are added
-.bat files for easy running of programs in Windows. For
-Linux is required to call programs from the CLI.The programs are portable between Windows and Linux.
+# The programs are portable between Windows and Linux.
+The program can be compiled using a Makefile. They are added .bat files for easy running of programs in Windows. For Linux is required to call programs from the CLI.
 
 I downloaded the RS-232 library:
 https://www.teuniz.net/RS-232/
