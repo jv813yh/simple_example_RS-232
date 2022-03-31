@@ -115,8 +115,11 @@ int main(void)
          * Suspends the implementation of the program for a 
          * specified number of seconds
          */
-        sleep_miliseconds_win_linux(MILISECONDS);
-
+         if ((sleep = sleep_miliseconds_win_linux(MILISECONDS)) == 0)
+         {
+          	printf("Problem during sleep");
+                return -1;
+          }
     } while (finish);
 
   printf("Finish...\n");
