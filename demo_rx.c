@@ -47,7 +47,7 @@ int main(void)
      * Return value determines whether the data transfer 
      * transmission was successful or not
      */
-    uint32_t result_transmission = 0, finish = 0, sleep;
+    uint32_t result_transmission = 0, finish = 0, sleep_return;
 
     /* 
      * 8N1 means eight databits, no parity, one stopbit
@@ -115,7 +115,7 @@ int main(void)
          * Suspends the implementation of the program for a 
          * specified number of seconds
          */
-         if ((sleep = sleep_miliseconds_win_linux(MILISECONDS)) == 0)
+         if ((sleep_return = sleep_miliseconds_win_linux(MILISECONDS)) == 0)
          {
           	printf("Problem during sleep");
                 return -1;
