@@ -47,7 +47,7 @@ int main(void)
      * Return value determines whether the data transfer 
      * transmission was successful or not
      */
-    uint32_t result_transmission = 0, finish = 0;
+    uint32_t result_transmission = 0, finish = 0, sleep;
 
     /* 
      * 8N1 means eight databits, no parity, one stopbit
