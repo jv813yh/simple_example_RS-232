@@ -65,6 +65,11 @@ uint32_t expected_size_data(int cport_number,
     {  
         /* Loading character by character */ 
         only_size = RS232_PollComport(cport_number, &embel, sizeof(unsigned char));
+        if (only_size < 0)
+        {
+          printf("Incorrect data received\n);
+          return -1;
+        }
         if (only_size > 0 ) 
         {
             data_size += only_size;
@@ -171,6 +176,11 @@ uint32_t data_receiving_blocks(int cport_number,
     {
         /* Gets characters from the serial port */
         received_bytes = RS232_PollComport(cport_number, buf, expected_size_block);
+       if (received_bytes < 0)
+        {
+          printf("Incorrect data send\n);
+          return -1;
+        }
 
         if (received_bytes > 0 && first_block == 0)
         {
@@ -408,6 +418,11 @@ uint32_t convert_file_and_size_send(int cport_number,
 
     /* Sending data size */
     int annouc = RS232_SendBuf(cport_number, convert_array, 4);
+    if (annouc < 0)
+    {
+      printf("Incorrect data send\n");
+      return -1;
+    } 
     if(annouc > 0 && change == 0) printf("\nThe size of the transmitted data was sent\n\n");
     else if(annouc > 0 && change == 1) printf("\nThe size of the transmitted blocks has been sent\n\n");
   
@@ -491,6 +506,11 @@ uint32_t send_data_blocks(int cport_number,
 
         /* Sends multiple bytes via the serial port */
         sent_bytes = RS232_SendBuf(cport_number, p_input + begin, sent_size);
+        if (sent_bytes < 0)
+        {
+            printf("Incorrect data send\n");
+            return -1;
+         } 
       
         /* Listing the number of bytes and block sent */
         if(sent_bytes > 0) printf("%u. sending: %u bytes\n", ++block_number, sent_bytes);
@@ -515,6 +535,11 @@ uint32_t send_data_blocks(int cport_number,
         while(sent_bytes > 0) 
         {   
             confirm_msg = RS232_PollComport(cport_number, buf_confirm_msg, sizeof(buf_confirm_msg));
+            if (confirm_msg < 0)
+            {
+                printf("Incorrect data received\n");
+                return -1;
+             } 
             if (confirm_msg > 0)
             {
                 printf("The recipient received %u block from %0.f blocks\n", block_number, count_blocks);
