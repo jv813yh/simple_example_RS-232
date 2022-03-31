@@ -142,6 +142,11 @@ int main(void)
             while(1)
             {
                 n = RS232_PollComport(CPORT_NR, buf, STATIC_ARRAY);
+                if (n < 0)
+   	            {
+      	    	    printf("Incorrect data received\n");
+      		        return -1;
+    	        }  
                 if (n > 0)
                 {
                     printf("\nReceiving: %d bytes\n%.*s\n", n, n, (char *)buf);
