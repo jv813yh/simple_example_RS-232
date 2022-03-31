@@ -36,8 +36,8 @@
 #define CPORT_NR                0
 /* 115200 baud, bit rate */
 #define B_TRATE                 115200
-/* Sleep for 50 milliSeconds - WINDOWS */
-#define MILISECONDS_WIN        50
+/* Sleep for 50 milliSeconds */
+#define MILISECONDS           50
 /* Maximum size of data in block */
 #define INTERNALL_BUFFER 	  4094
 /* Auxiliary size of static array */
@@ -127,7 +127,7 @@ int main(void)
                                         input,
                                         file_size,
                                         INTERNALL_BUFFER,
-                                        MILISECONDS_WIN);
+                                        MILISECONDS);
         if (data_transfer != 1)
         {
             printf("There was a problem with sending data, you need to start over\n");
@@ -172,7 +172,7 @@ int main(void)
                  * Suspends the implementation of the program for a 
                  * specified number of seconds
                  */
-                if ((sleep = sleep_miliseconds_win_linux(MILISECONDS_WIN)) == 0)
+                if ((sleep = sleep_miliseconds_win_linux(MILISECONDS)) == 0)
                 {
                     printf("Problem during sleep");
                     return -1;
