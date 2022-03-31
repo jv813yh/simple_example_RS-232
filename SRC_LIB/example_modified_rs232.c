@@ -67,7 +67,7 @@ uint32_t expected_size_data(int cport_number,
         only_size = RS232_PollComport(cport_number, &embel, sizeof(unsigned char));
         if (only_size < 0)
         {
-          printf("Incorrect data received\n);
+          printf("Incorrect data received\n");
           return -1;
         }
         if (only_size > 0 ) 
@@ -178,7 +178,7 @@ uint32_t data_receiving_blocks(int cport_number,
         received_bytes = RS232_PollComport(cport_number, buf, expected_size_block);
        if (received_bytes < 0)
         {
-          printf("Incorrect data send\n);
+          printf("Incorrect data send\n");
           return -1;
         }
 
