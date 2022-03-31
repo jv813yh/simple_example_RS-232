@@ -88,6 +88,11 @@ int main(void)
             int length = strlen(check_data);
             int ok_message;
             ok_message = RS232_SendBuf(CPORT_NR, (unsigned char *) check_data, length);
+	    if (ok_message < 0)
+   	    {
+      	    	printf("Incorrect data send\n");
+      		return -1;
+    	     }  
             printf("Sent %d bytes about confirming the report\n\n", ok_message);
         } else 
         {
@@ -96,6 +101,11 @@ int main(void)
             int length1 = strlen(check_data);
             int ok_message;
             ok_message = RS232_SendBuf(CPORT_NR, (unsigned char *)check_data, length1);
+	    if (ok_message < 0)
+   	    {
+      	    	printf("Incorrect data send\n");
+      		return -1;
+    	     }  
             printf("Sent %d bytes about confirming the report\n", ok_message);
             
             finish++;
