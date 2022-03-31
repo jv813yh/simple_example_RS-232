@@ -35,8 +35,8 @@
 #define CPORT_NR                1
 /* 115200 baud, bit rate */
 #define B_TRATE                 115200
-/* Sleep for 50 milliSeconds - WINDOWS */
-#define MILISECONDS_WIN         50
+/* Sleep for 50 milliSeconds  */
+#define MILISECONDS             50
 /* Auxiliary size of static array */
 #define STATIC_ARRAY            1024
 
@@ -69,7 +69,7 @@ int main(void)
     { 
         /* All data transfer is performed by this function */
         result_transmission = data_receiving_blocks(CPORT_NR,
-                                                    MILISECONDS_WIN);
+                                                    MILISECONDS);
         if (result_transmission != 1)
         {
             printf("Data reception failure\n");
@@ -115,7 +115,7 @@ int main(void)
          * Suspends the implementation of the program for a 
          * specified number of seconds
          */
-        sleep_miliseconds_win_linux(MILISECONDS_WIN);
+        sleep_miliseconds_win_linux(MILISECONDS);
 
     } while (finish);
 
