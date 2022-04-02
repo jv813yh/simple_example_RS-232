@@ -155,7 +155,7 @@ uint32_t data_receiving_blocks(int cport_number,
         last_block_size = expected_size % expected_size_block;
         count_blocks = floor(count_blocks);
 
-        printf("The number of blocks will be %.0f\n", count_blocks);
+       // printf("The number of blocks will be %.0f\n", count_blocks);
        /* 
         * Suspends the implementation of the program for a 
         * specified number of seconds
@@ -307,12 +307,20 @@ unsigned char *loading_file(char *file,
         uint32_t i = 0;
 
         printf("Enter the approximate file size in bytes: \n");
-        scanf("%u",&expected_size_file);
+        if (EOF == scanf("%u", &expected_size_file))
+        {
+            printf("Oh no man :( bad file size, the program will end.\nPlease turn it on again\n");
+            return -1;
+        } 
         expected_size_file = expected_size_file / 
                             (sizeof(expected_size_file) * sizeof(expected_size_file));
         printf("Enter max integer (range): \n");
-        scanf("%u",&range);
-
+        if (EOF == scanf("%u", &range))
+        {
+            printf("Oh no man :( bad max integer, the program will end.\nPlease turn it on again\n");
+            return -1;
+        } 
+       
         while(i++ < expected_size_file)
         {
             fprintf(stream, "Number %d. %u, ", i,  rand() % range);
@@ -322,7 +330,6 @@ unsigned char *loading_file(char *file,
 
         if(fclose(stream) == EOF) 
             printf("Failed to closed file\n");
-
     }
 
     if ((stream = fopen(file, "rb")) == NULL) 
@@ -370,7 +377,7 @@ unsigned char *loading_file(char *file,
     input = (unsigned char *) malloc(*file_size);
     if (input == NULL) 
     {
-        printf("Memory not allocated.\n");
+        printf("Memory not allocated for input data.\n");
         exit(0);
     }
 
