@@ -310,7 +310,7 @@ unsigned char *loading_file(char *file,
         if (EOF == scanf("%u", &expected_size_file))
         {
             printf("Oh no man :( bad file size, the program will end.\nPlease turn it on again\n");
-            return -1;
+            return 0;
         } 
         expected_size_file = expected_size_file / 
                             (sizeof(expected_size_file) * sizeof(expected_size_file));
@@ -318,7 +318,7 @@ unsigned char *loading_file(char *file,
         if (EOF == scanf("%u", &range))
         {
             printf("Oh no man :( bad max integer, the program will end.\nPlease turn it on again\n");
-            return -1;
+            return 0;
         } 
        
         while(i++ < expected_size_file)
