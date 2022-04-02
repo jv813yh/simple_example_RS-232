@@ -8,6 +8,7 @@
 
 CC=gcc
 CFLAGS=-c -O2 -Wall -fcommon -I./INC
+LDFLAGS= -lm
 
 #meno vytvorenej kniznice
 LIBRARY=modified_rs232.a
@@ -27,10 +28,10 @@ OBJ_EXE=$(SRC_EXE:.c=.o)
 all: $(SRC_EXE) $(SRC_LIB) $(EXECUTABLE)
 
 $(EXECUTABLE) : %: %.o $(LIBRARY)
-	$(CC) -o $@ $+ 
+	$(CC) -o $@ $+ $(LDFLAGS)
 
 .c.o:
-	$(CC) $(CFLAGS)  $< -o $@
+	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
 
 $(LIBRARY): $(OBJ_LIB) #linkovanie suborov kniznice do statickej kniznice
 	ar rcu $@ $+
