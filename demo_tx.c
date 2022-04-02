@@ -20,7 +20,7 @@
 #include <math.h>
 #include <time.h>
 
-#ifdef _WIN32
+#ifdef (_WIN32)
 #include <Windows.h>
 #else
 #include <unistd.h>
@@ -36,8 +36,14 @@
 #define CPORT_NR                0
 /* 115200 baud, bit rate */
 #define B_TRATE                 115200
+
+#if defined(_WIN32)
 /* Sleep for 50 milliSeconds */
 #define MILISECONDS           50
+#else 
+#define MILISECONDS           370
+#endif
+    
 /* Maximum size of data in block */
 #define INTERNALL_BUFFER 	  4094
 /* Auxiliary size of static array */
