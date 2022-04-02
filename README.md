@@ -23,7 +23,7 @@ I use the com0com emulator, which can only run on Windows
 to create virtual COM ports:
 http://com0com.sourceforge.net/
 
-On Linux I use:
+To gain access to a serial port on Linux, we must be a member of the "dialout" group
 
 Because I didn't want to use any cryptography in the programs
 protection of transmitted data or something similar, the file Compare_files.c is added,
