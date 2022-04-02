@@ -14,11 +14,8 @@
 **************************************************/
 
 /* Basic libraries for working in C. */
-//#include <stdlib.h>
 #include <stdio.h>
 #include <stdint.h>
-//#include <math.h>
-//#include <time.h>
 
 #ifdef _WIN32
 #include <Windows.h>
