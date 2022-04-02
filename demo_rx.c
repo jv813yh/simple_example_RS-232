@@ -79,7 +79,7 @@ int main(void)
          * Suspends the implementation of the program for a 
          * specified number of seconds
          */
-         if ((sleep = sleep_miliseconds_win_linux(MILISECONDS * 2)) == 0)
+         if ((sleep_return = sleep_miliseconds_win_linux(MILISECONDS * 2)) == 0)
          {
              printf("Problem during sleep");
              return -1;
