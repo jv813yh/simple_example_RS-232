@@ -20,7 +20,7 @@
 #include <math.h>
 #include <time.h>
 
-#ifdef (_WIN32)
+#ifdef _WIN32
 #include <Windows.h>
 #else
 #include <unistd.h>
