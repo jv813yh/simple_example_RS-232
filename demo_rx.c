@@ -21,7 +21,7 @@
 
 #include <time.h>
 
-#ifdef _WIN32
+#ifdef (_WIN32)
 #include <Windows.h>
 #else
 #include <unistd.h>
@@ -75,7 +75,15 @@ int main(void)
             printf("Data reception failure\n");
             return -1;
         }
-
+	/* 
+         * Suspends the implementation of the program for a 
+         * specified number of seconds
+         */
+         if ((sleep = sleep_miliseconds_win_linux(MILISECONDS * 2)) == 0)
+         {
+             printf("Problem during sleep");
+             return -1;
+         }
         /* 
          * Check if wass all data has been sent, if yes 
          * we send data that sending of data is OKEY and break of procces
