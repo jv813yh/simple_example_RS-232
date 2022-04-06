@@ -16,6 +16,7 @@
 /* Basic libraries for working in C. */
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 #ifdef _WIN32
 #include <Windows.h>
