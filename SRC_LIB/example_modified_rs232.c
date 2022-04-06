@@ -1,6 +1,6 @@
 /**
  * ===============================================
- * example_modified_rs232c   v.0.2
+ * example_modified_rs232c   v.0.3
  * 
  * KEMT FEI TUKE, Diploma thesis
  *
