@@ -244,7 +244,15 @@ uint32_t data_receiving_blocks(int cport_number,
             }
         } /* End of entire block */
     } while(begin != expected_size); /* End of data reception */
-
+  
+#if !defined(_WIN32)
+    if ((sleep = sleep_miliseconds_win_linux(sleep_miliseconds * 4)) == 0)
+    {
+        printf("Problem during sleep");
+        return -1;
+    }
+#endif
+  
     double elapsed = (double)(stop - start)  / CLOCKS_PER_SEC;
     printf("\n****************** Summary *********************\n");
     printf("File transfer about size: %u time took seconds: %0.f\n\n", expected_size, elapsed);
