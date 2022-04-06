@@ -389,9 +389,12 @@ unsigned char *loading_file(char *file,
      * file_size is the number of elements, 
      * each one with a size of size bytes.
      */
-    fread(input, 1, *file_size, stream);
-
-
+   uint32_t check_fread = fread(input, 1, *file_size, stream);
+   if(check_fread <= 0)
+   {
+      printf("The file size was not read\n);
+   }
+           
     if(fclose(stream) == EOF) 
         printf("Failed to closed file\n");
 
