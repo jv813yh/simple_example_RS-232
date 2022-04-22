@@ -226,12 +226,7 @@ uint32_t data_receiving_blocks(int cport_number,
           
         /* We have received the whole block of data, we inform the sender */
         if (entire_block == expected_size_block)
-        {
-            RS232_cputs(cport_number, "OK");
-            printf("The entire data block has been received\n");
-            true_count_block++;
-            entire_block = 0;
-              
+        { 
             /* 
              * Suspends the implementation of the program for a 
              * specified number of seconds.
@@ -242,11 +237,17 @@ uint32_t data_receiving_blocks(int cport_number,
                 printf("Problem during sleep");
                 return -1;
             }
+          
+            RS232_cputs(cport_number, "OK");
+            printf("The entire data block has been received\n");
+            true_count_block++;
+            entire_block = 0;
+          
         } /* End of entire block */
     } while(begin != expected_size); /* End of data reception */
   
 #if !defined(_WIN32)
-    if ((sleep = sleep_miliseconds_win_linux(sleep_miliseconds * 4)) == 0)
+    if ((sleep = sleep_miliseconds_win_linux(sleep_miliseconds * 2)) == 0)
     {
         printf("Problem during sleep");
         return -1;
